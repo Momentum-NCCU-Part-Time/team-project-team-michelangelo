@@ -1,0 +1,16 @@
+{
+  "habits": [
+    {
+      "id": 1,
+      "frequency": "daily",
+      "habits": [
+        {
+          "id": 1,
+          "habit": "workout",
+          "finished": false
+        }
+      ],
+      "updatedAt": "2018-01-01T00:00:00.000Z"
+    }
+  ]
+}
