@@ -21,8 +21,8 @@ import Signup from "./views/Signup.vue";
   </p>
   <router-view />
   <div id="app">
-    <Login />
-    <Signup />
+    <!-- <Login />
+    <Signup /> -->
     <h1 class="header">My Habits</h1>
     <ListOfHabits />
   </div>
