@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <div id="app">
+      <p>
+        <router-link to="/">Home</router-link>
+        <router-link to="/login">Login</router-link>
+        <router-link to="/signup">Signup</router-link>
+      </p>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
