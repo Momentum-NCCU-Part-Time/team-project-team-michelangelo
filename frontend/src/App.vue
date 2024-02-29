@@ -23,8 +23,8 @@ import Signup from "./views/Signup.vue";
   <div id="app">
     <!-- <Login />
     <Signup /> -->
-    <h1 class="header">My Habits</h1>
-    <ListOfHabits />
+    <!-- <h1 class="header">My Habits</h1>
+    <ListOfHabits /> -->
   </div>
 </template>
 <style scoped></style>
