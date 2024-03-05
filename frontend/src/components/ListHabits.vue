@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from "vue";
 
-const props = defineProps({ habits: Object });
+const props = defineProps({ user: Object });
 </script>
 
 <template>
   <div>
     <ul>
-      <li v-for="habits in props.habits" :key="props.habits.id">
-        {{ habits.habit }}
+      <li v-for="habits in props.user.scheduledHabitList" :key="id">
+        {{ habits.habitTitle }}
       </li>
     </ul>
   </div>
