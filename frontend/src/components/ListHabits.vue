@@ -9,6 +9,8 @@ const props = defineProps({ user: Object });
     <ul>
       <li v-for="habits in props.user.scheduledHabitList" :key="id">
         {{ habits.habitTitle }}
+        <br />
+        {{ habits.frequency }}
       </li>
     </ul>
   </div>

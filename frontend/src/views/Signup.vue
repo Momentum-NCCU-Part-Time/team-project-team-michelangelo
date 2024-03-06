@@ -10,7 +10,7 @@ const addNewUser = () => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      userName: userName.value,
+      username: userName.value,
       email: userEmail.value,
       password: password.value,
       scheduledHabitList: [],
