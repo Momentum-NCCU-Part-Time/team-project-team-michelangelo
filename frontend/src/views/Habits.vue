@@ -2,12 +2,13 @@
 import { ref } from "vue";
 import ListOfHabits from "../components/ListOfHabits.vue/";
 const userInfo = ref([]);
+const token = localStorage.getItem("token");
 
 fetch("http://localhost:3000/user", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
-    "Authorization":
+    Authorization: "Bearer ${token}",
   },
 })
   .then((res) => res.json())
@@ -15,7 +16,7 @@ fetch("http://localhost:3000/user", {
 </script>
 <template>
   <div>
-    <h1>Hello {{ username }}</h1>
+    <h1>Hello {{ userInfo }}</h1>
     <h1 class="header">My Habits</h1>
   </div>
 </template>
