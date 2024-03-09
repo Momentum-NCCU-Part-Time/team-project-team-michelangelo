@@ -1,22 +1,32 @@
 <script setup>
 import { ref } from "vue";
-const userName = ref("");
+import { useRouter } from "vue-router";
+const router = useRouter();
+const userEmail = ref("");
 const password = ref("");
-
-const addNewList = () => {
-  fetch("http://localhost:3000/user/", {
+const loggedIn = ref(false);
+const initiateLogin = () => {
+  fetch("http://localhost:3000/login/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      title: newList.value,
-      items: [],
-      updatedAt: new Date(),
+      email: userEmail.value,
+      password: password.value,
     }),
   })
-    .then((res) => res.json())
-    .then((newList) => {
-      emit("listAdded", newList);
-      resetList();
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Login failed");
+      }
+      res.json();
+    })
+    .then((r) => {
+      loggedIn.value = true;
+      router.push("/habits");
+      console.log(loggedIn.value);
+    })
+    .catch((error) => {
+      console.log("Login failed:", error);
     });
 };
 </script>
@@ -25,7 +35,7 @@ const addNewList = () => {
   <div>
     <h3>Beyond21 Login</h3>
     <form id="loginContainer" @submit.prevent="initiateLogin">
-      <input v-model="userName" type="text" placeholder="Username" />
+      <input v-model="userEmail" type="text" placeholder="Email" />
       <br />
       <input v-model="password" type="text" placeholder="Password" />
       <br />

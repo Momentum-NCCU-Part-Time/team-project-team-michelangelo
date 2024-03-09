@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import ListOfHabits from "./components/ListOfHabits.vue";
-import Home from "./views/Home.vue";
+/* import Home from "./views/Home.vue";
 import Login from "./views/Login.vue";
-import Signup from "./views/Signup.vue";
+import Signup from "./views/Signup.vue"; */
 </script>
 
 <template>
@@ -28,3 +28,4 @@ import Signup from "./views/Signup.vue";
   </div>
 </template>
 <style scoped></style>
+./views/Habits.vue./views/Habits.vue

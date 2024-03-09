@@ -2,12 +2,15 @@
 import { ref } from "vue";
 import ListHabits from "./ListHabits.vue/";
 import NewHabit from "./NewHabit.vue/";
-const everything = ref([]);
+const habits = ref([]);
 const newHabit = ref("");
 
-fetch("http://localhost:3000/everything", {
+fetch("http://localhost:3000/habits", {
   method: "GET",
-  headers: { "Content-Type": "application/json" },
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+  },
 })
   .then((res) => res.json())
   .then((data) => (everything.value = data));

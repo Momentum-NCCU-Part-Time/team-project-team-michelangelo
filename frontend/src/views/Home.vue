@@ -1,10 +1,8 @@
 <script setup>
 import { ref } from "vue";
-import ListOfHabits from "../components/ListOfHabits.vue/";
 </script>
+
 <template>
-  <div>
-    <h1 class="header">My Habits</h1>
-    <ListOfHabits />
-  </div>
+  <h1>Welcome to Beyond 21, please sign up or login</h1>
 </template>
+<style></style>
