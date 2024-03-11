@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const userName = ref("");
 const userEmail = ref("");
 const password = ref("");
@@ -17,8 +19,18 @@ const addNewUser = () => {
       updatedAt: new Date(),
     }),
   })
-    .then((res) => res.json())
-    .then((r) => {});
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Login failed");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      router.push("/login");
+    })
+    .catch((error) => {
+      console.log("Login failed:", error);
+    });
 };
 </script>
 
