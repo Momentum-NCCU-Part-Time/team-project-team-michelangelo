@@ -4,6 +4,7 @@ import ListOfHabits from "./components/ListOfHabits.vue";
 import Home from "./views/Home.vue";
 import Login from "./views/Login.vue";
 import Signup from "./views/Signup.vue";
+import Landing from "./views/Landing.vue";
 </script>
 
 <template>
