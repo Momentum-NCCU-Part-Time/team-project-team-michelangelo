@@ -1,10 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const userEmail = ref("");
 const password = ref("");
-const loggedIn = ref(false);
+/* const loggedIn = ref(false); */
+let token;
+/* const state = reactive({ token: null }); */
+
 const initiateLogin = () => {
   fetch("http://localhost:3000/login/", {
     method: "POST",
@@ -18,12 +21,15 @@ const initiateLogin = () => {
       if (!res.ok) {
         throw new Error("Login failed");
       }
-      res.json();
+      return res.json();
     })
-    .then((r) => {
-      loggedIn.value = true;
+    .then((data) => {
+      console.log(data.auth);
+      /* loggedIn.value = true; */
+      token = data.auth;
+      localStorage.setItem("token", JSON.stringify(token));
+      /* state.token = data.token; */
       router.push("/habits");
-      console.log(loggedIn.value);
     })
     .catch((error) => {
       console.log("Login failed:", error);
