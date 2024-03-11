@@ -47,7 +47,9 @@ const initiateLogin = () => {
       <br />
       <button class="loginBtn" type="submit">Login</button>
       <br />
-      <button class="signUpBtn" type="submit">New User Signup</button>
+      <button @click="router.push('/signup')" class="signUpBtn" type="submit">
+        New User Signup
+      </button>
     </form>
   </div>
 </template>
