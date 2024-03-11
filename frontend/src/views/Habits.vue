@@ -4,7 +4,9 @@ import { ref } from "vue";
 //import ListOfHabits from "../components/ListOfHabits.vue/";
 const userInfo = ref([]);
 /* const token = ref(null); */
-let token = localStorage.getItem("token");
+let token = localStorage.getItem("token")
+  ? JSON.parse(localStorage.getItem("token"))
+  : null;
 console.log(token);
 
 fetch("http://localhost:3000/user", {

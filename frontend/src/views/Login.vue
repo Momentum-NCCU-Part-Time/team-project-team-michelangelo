@@ -5,7 +5,7 @@ const router = useRouter();
 const userEmail = ref("");
 const password = ref("");
 /* const loggedIn = ref(false); */
-let token;
+let token = ref(null);
 /* const state = reactive({ token: null }); */
 
 const initiateLogin = () => {
@@ -28,7 +28,7 @@ const initiateLogin = () => {
       /* loggedIn.value = true; */
       token = data.auth;
       localStorage.setItem("token", JSON.stringify(token));
-      /* state.token = data.token; */
+      /* state.token = data.auth; */
       router.push("/habits");
     })
     .catch((error) => {
