@@ -1,15 +1,17 @@
 <script setup>
 import { ref } from "vue";
 const newHabitName = ref("");
-const newHabitFreq = ref("");
+const newHabitNum = ref("");
+const newHabitUnit = ref("");
 const newHabitComment = ref("");
 const addingHabit = ref(false);
+//get token
 let token = localStorage.getItem("token")
   ? JSON.parse(localStorage.getItem("token"))
   : null;
 console.log(token);
 const emit = defineEmits(["habitAdded"]);
-
+//add habit function
 const addNewHabit = () => {
   fetch("http://localhost:3000/habits", {
     method: "POST",
@@ -19,7 +21,8 @@ const addNewHabit = () => {
     },
     body: JSON.stringify({
       habitName: newHabitName.value,
-      frequency: newHabitFreq.value,
+      numVal: newHabitNum.value,
+      unit: newHabitUnit.value,
       comment: newHabitComment.value,
       completed: false,
       updatedAt: new Date(),
@@ -38,7 +41,8 @@ const addHabit = (e) => {
 //refresh textboxes
 const resetHabit = () => {
   newHabitName.value = "";
-  newHabitFreq.value = "";
+  newHabitNum.value = "";
+  newHabitUnit.value = "";
   newHabitComment.value = "";
 };
 </script>
@@ -57,11 +61,16 @@ const resetHabit = () => {
         placeholder="New Habit"
       />
       <input
-        v-model="newHabitFreq"
+        v-model="newHabitNum"
         class="newForm"
-        type="text"
-        placeholder="Frequency"
+        type="number"
+        placeholder="Amount of"
       />
+      <select v-model="newHabitUnit">
+        <option disabled value="">Select a unit</option>
+        <option>Times</option>
+        <option>Min</option>
+      </select>
       <input
         v-model="newHabitComment"
         class="newForm"

@@ -2,12 +2,12 @@
 import { ref } from "vue";
 import NewHabit from "./NewHabit.vue";
 const habits = ref([]);
-
+//get token
 let token = localStorage.getItem("token")
   ? JSON.parse(localStorage.getItem("token"))
   : null;
 console.log(token);
-
+//automatically get habits
 fetch("http://localhost:3000/habits", {
   method: "GET",
   headers: {
@@ -26,7 +26,7 @@ fetch("http://localhost:3000/habits", {
   .catch((error) => {
     console.error("Error fetching user data:", error);
   });
-
+//get habit emit
 const getHabits = () => {
   fetch("http://localhost:3000/habits", {
     method: "GET",
@@ -54,15 +54,22 @@ const getHabits = () => {
     <div>
       <NewHabit @habitAdded="getHabits" />
     </div>
-    <h1 class="header">My Habits</h1>
+    <h2 class="habitsHeader">My Daily Habits</h2>
+    <!-- throw in some dummy text for styleing purposes
+    delete before deployment-->
+    <p>Code for 30 minutes a day</p>
     <ul>
       <li v-for="habit in habits" :key="habit._id">
-        {{ habit.habitName }}
-        {{ habit.frequency }}
-        {{ habit.comment }}
+        {{ habit.habitName }}/
+        {{ habit.numVal }}
+        {{ habit.unit }}/ {{ habit.comment }}
       </li>
     </ul>
   </div>
 </template>
 
-<style></style>
+<style>
+ul {
+  list-style-type: none;
+}
+</style>

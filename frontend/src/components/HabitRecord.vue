@@ -6,7 +6,7 @@ const count = ref(0);
 
 <template>
   <div class="counter">
-    <button type="button" @click="count++">Streak: {{ count }}</button>
+    <button type="button" @click="editHabit">Edit</button>
   </div>
 </template>
 
