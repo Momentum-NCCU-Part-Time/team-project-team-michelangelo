@@ -43,7 +43,7 @@ const initiateLogin = () => {
     <form id="loginContainer" @submit.prevent="initiateLogin">
       <input v-model="userEmail" type="text" placeholder="Email" />
       <br />
-      <input v-model="password" type="text" placeholder="Password" />
+      <input v-model="password" type="password" placeholder="Password" />
       <br />
       <button class="loginBtn" type="submit">Login</button>
       <br />

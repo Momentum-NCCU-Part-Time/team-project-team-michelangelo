@@ -1,28 +1,59 @@
 <script setup>
 import { ref } from "vue";
 const newHabitName = ref("");
-const newHabitFreq = ref("");
+const newHabitNum = ref("");
+const newHabitUnit = ref("");
 const newHabitComment = ref("");
-
+const addingHabit = ref(false);
+//get token
+let token = localStorage.getItem("token")
+  ? JSON.parse(localStorage.getItem("token"))
+  : null;
+console.log(token);
+const emit = defineEmits(["habitAdded"]);
+//add habit function
 const addNewHabit = () => {
-  fetch("http://localhost:3000/user/65e793666ede3e1d142f29bc/habits", {
+  fetch("http://localhost:3000/habits", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
-      habitTitle: newHabitName.value,
-      frequency: newHabitFreq.value,
+      habitName: newHabitName.value,
+      numVal: newHabitNum.value,
+      unit: newHabitUnit.value,
+      comment: newHabitComment.value,
       completed: false,
       updatedAt: new Date(),
     }),
   })
     .then((res) => res.json())
-    .then((r) => {});
+    .then((addedHabit) => {
+      emit("habitAdded", addedHabit);
+      resetHabit();
+    });
+};
+//show habit form
+const addHabit = (e) => {
+  addingHabit.value = e;
+};
+//refresh textboxes
+const resetHabit = () => {
+  newHabitName.value = "";
+  newHabitNum.value = "";
+  newHabitUnit.value = "";
+  newHabitComment.value = "";
 };
 </script>
 
 <template>
   <div>
-    <form @submit.prevent="addNewHabit" id="newHabitContainer">
+    <form
+      v-if="addingHabit"
+      @submit.prevent="addNewHabit"
+      id="newHabitContainer"
+    >
       <input
         v-model="newHabitName"
         class="newForm"
@@ -30,19 +61,30 @@ const addNewHabit = () => {
         placeholder="New Habit"
       />
       <input
-        v-model="newHabitFreq"
+        v-model="newHabitNum"
         class="newForm"
-        type="text"
-        placeholder="Frequency"
+        type="number"
+        placeholder="Amount of"
       />
+      <select v-model="newHabitUnit">
+        <option disabled value="">Select a unit</option>
+        <option>Times</option>
+        <option>Min</option>
+      </select>
       <input
         v-model="newHabitComment"
         class="newForm"
         type="textbox"
         placeholder="Additional Comments"
       />
-      <button class="newHabitBtn" type="submit">New Habit</button>
+      <button class="newHabitBtn" type="submit">Add New Habit</button>
     </form>
+    <button v-if="addingHabit" @click="addHabit(false)" class="newHabitBtn">
+      Nevermind
+    </button>
+    <button v-else @click="addHabit(true)" class="newHabitBtn">
+      Add Habit
+    </button>
   </div>
 </template>
 

@@ -47,7 +47,7 @@ const addNewUser = () => {
       <br />
       <input v-model="userEmail" type="text" placeholder="Enter Email" />
       <br />
-      <input v-model="password" type="text" placeholder="Create Password" />
+      <input v-model="password" type="password" placeholder="Create Password" />
       <br />
       <!-- <input
         v-model="confirmPassword"
