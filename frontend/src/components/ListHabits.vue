@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import NewHabit from "./NewHabit.vue";
+import HabitRecord from "./HabitRecord.vue";
 const habits = ref([]);
 //get token
 let token = localStorage.getItem("token")
@@ -63,6 +64,7 @@ const getHabits = () => {
         {{ habit.habitName }}/
         {{ habit.numVal }}
         {{ habit.unit }}/ {{ habit.comment }}
+        <HabitRecord :habitId="habit._id" />
       </li>
     </ul>
   </div>
