@@ -1,22 +1,19 @@
 {
-  "name": "team-project-team-michelangelo",
+  "name": "new-frontend",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "api": "json-server db.json",
-    "start": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "json-server": "^1.0.0-alpha.23",
-    "vue": "^3.4.19",
+    "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "npm-run-all": "^4.1.5",
-    "vite": "^5.1.4"
+    "vite": "^5.1.6"
   }
 }

@@ -5,7 +5,6 @@ const router = useRouter();
 const userName = ref("");
 const userEmail = ref("");
 const password = ref("");
-/* const confirmPassword = ref(""); */
 
 const addNewUser = () => {
   fetch("http://localhost:3000/signup", {
