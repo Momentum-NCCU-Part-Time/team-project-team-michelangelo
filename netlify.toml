@@ -1,0 +1,26 @@
+[build]
+  # Specify the build command for Netlify to run
+  command = "npm run build"
+
+  # Specify the directory where the built files are located
+  publish = "dist/"
+
+[build.environment]
+  # Optionally, define environment variables needed during the build process
+  # For example, if you have API keys or other sensitive data
+  # MY_SECRET_KEY = "your_secret_key_here"
+
+[[redirects]]
+  # Define redirects if needed
+  # For example, redirect all requests to index.html for SPA routing
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  # Define headers if needed
+  # For example, set Content-Security-Policy header
+  # Replace 'example.com' with your actual domain
+  for = "/*"
+    [headers.values]
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' example.com"
