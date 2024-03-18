@@ -49,39 +49,51 @@ const resetHabit = () => {
 
 <template>
   <div>
+    <br />
     <form
       v-if="addingHabit"
       @submit.prevent="addNewHabit"
       id="newHabitContainer"
     >
+      <label username="" for="newHabitName"> New Habit </label>
       <input
         v-model="newHabitName"
         class="newForm"
         type="text"
-        placeholder="New Habit"
+        placeholder="e.g., Code 30 Minutes"
       />
+      <br />
+      <label username="" for="newHabitName">
+        Amount in a Day (numeric value)
+      </label>
       <input
         v-model="newHabitNum"
         class="newForm"
         type="number"
-        placeholder="Amount of"
+        placeholder="e.g., 3 "
       />
       <select v-model="newHabitUnit">
         <option disabled value="">Select a unit</option>
         <option>Times</option>
         <option>Min</option>
       </select>
+      <br /><label username="" for="newHabitName">
+        Additional Comment(s)?
+      </label>
+
       <input
         v-model="newHabitComment"
         class="newForm"
         type="textbox"
-        placeholder="Additional Comments"
+        placeholder="e.g., I Do Better Coding at Night After A Workout."
       />
+      <br />
       <button class="newHabitBtn" type="submit">Add New Habit</button>
+
+      <button v-if="addingHabit" @click="addHabit(false)" class="newHabitBtn">
+        Nevermind
+      </button>
     </form>
-    <button v-if="addingHabit" @click="addHabit(false)" class="newHabitBtn">
-      Nevermind
-    </button>
     <button v-else @click="addHabit(true)" class="newHabitBtn">
       Add Habit
     </button>

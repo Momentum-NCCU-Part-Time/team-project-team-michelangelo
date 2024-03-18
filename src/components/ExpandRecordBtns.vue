@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from "vue";
-import ExpandRecordBtns from "./ExpandRecordBtns.vue";
+const note = ref("");
+const expandingRecord = ref(false);
 let token = localStorage.getItem("token")
   ? JSON.parse(localStorage.getItem("token"))
   : null;
 console.log(token);
 const props = defineProps(["habitId"]);
 
-const addRecord = () => {
+const addCompleteRecord = () => {
   fetch(`http://localhost:3000/habits/${props.habitId}/done`, {
     method: "POST",
     headers: {
@@ -15,7 +16,7 @@ const addRecord = () => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      note: "",
+      note: note.value,
     }),
   })
     .then((res) => {
@@ -26,19 +27,46 @@ const addRecord = () => {
     })
     .then((data) => {
       console.log("Record added successfully:", data);
+      resetNote();
       // Perform any additional actions afterding the record
     })
     .catch((error) => {
       console.error("Error adding record:", error);
     });
 };
+
+const expandRecord = (e) => {
+  expandingRecord.value = e;
+};
+
+const resetNote = () => {
+  note.value = "";
+};
 </script>
 
 <template>
-  <div class="=addRecord">
-    <button class="recordButton" @click="addRecord">Done</button>
-    <ExpandRecordBtns />
+  <div>
+    <form
+      v-if="expandingRecord"
+      class="recordForm"
+      @submit.prevent="addFailedRecord"
+    >
+      <input
+        v-model="note"
+        class="noteForm"
+        type="text"
+        placeholder="Add Note"
+      />
+      <br />
+      <button class="recordBtn" type="submit">Missed</button>
+    </form>
+    <button
+      v-if="expandingRecord"
+      @click="expandRecord(false)"
+      class="recordBtn"
+    >
+      Nevermind
+    </button>
+    <button v-else @click="expandRecord(true)" class="recordBtn">More</button>
   </div>
 </template>
-
-<style scoped></style>
