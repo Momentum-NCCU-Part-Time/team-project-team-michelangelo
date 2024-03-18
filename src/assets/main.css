@@ -22,7 +22,6 @@ body {
 
 label {
   display: flex;
-  width: 200px;
   clear: both;
   float: left;
 }
@@ -72,7 +71,7 @@ a:hover {
 }
 
 hr.rounded {
-  border-top: 4px solid;
+  border-top: px solid;
   border-radius: 5px;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -181,7 +180,6 @@ h5 {
 
 button {
   border-radius: 4px;
-  border: none;
   padding: 0.8em 1.5em;
   font-size: 1em;
   font-weight: 600;
@@ -283,4 +281,77 @@ button:hover {
 
 a {
   color: #8ce4e4;
+}
+
+.habitsHeader {
+  text-align: center;
+  max-width: 600px;
+  position: relative;
+  font-size: 20px;
+}
+.habitsHeader:before {
+  content: "";
+  display: block;
+  width: 165px;
+  height: 5px;
+  background: #fff;
+  left: 50px;
+  top: 50%;
+  position: absolute;
+  height: 1px;
+}
+.habitsHeader:after {
+  content: "";
+  display: block;
+  width: 165px;
+  height: 5px;
+  background: #fff;
+  right: 50px;
+  top: 50%;
+  position: absolute;
+  height: 1px;
+}
+#newHabitContainer {
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  padding: 2rem;
+  background-color: #f3f1f1ad;
+  border: 1px solid hsl(0, 0%, 90%);
+  display: block;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  color: #082a71;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="textbox"],
+select {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 12px 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.habit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 18px;
+  text-align: center;
+  box-sizing: border-box;
+  float: right;
+  color: #f3f1f1;
+}
+
+h7 {
+  display: block;
+  font-size: 12px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding: 1em;
 }

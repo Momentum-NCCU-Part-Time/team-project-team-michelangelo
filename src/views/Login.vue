@@ -26,7 +26,7 @@ const initiateLogin = () => {
     .then((data) => {
       console.log(data.auth);
       /* loggedIn.value = true; */
-      token = $2a$10$JmBIWzs3QmerO0BbnAi8hO8WKy6DOVmcFVOLRvwCTuFadPfUsGj8y;
+      token = data.auth;
       localStorage.setItem("token", JSON.stringify(token));
       /* state.token = data.auth; */
       router.push("/habits");
@@ -56,7 +56,7 @@ const initiateLogin = () => {
       <label Email for="password"> Password </label>
       <a class="float-right forgot-password"> Forgot Password? </a>
       <input
-        v-model="passwordInput"
+        v-model="password"
         type="password"
         placeholder="Password"
         class="form-control"

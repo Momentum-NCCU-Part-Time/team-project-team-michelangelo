@@ -55,17 +55,20 @@ const getHabits = () => {
     <div>
       <NewHabit @habitAdded="getHabits" />
     </div>
-    <h2 class="habitsHeader">My Daily Habits</h2>
-    <!-- throw in some dummy text for styleing purposes
-    delete before deployment-->
-    <p>Code for 30 minutes a day</p>
+    <br />
+    <h4 class="habitsHeader">My Daily Habits</h4>
+
     <ul>
-      <li v-for="habit in habits" :key="habit._id">
-        {{ habit.habitName }}/
-        {{ habit.numVal }}
-        {{ habit.unit }}/ {{ habit.comment }}
-        <HabitRecord :habitId="habit._id" />
-      </li>
+      <div class="habit-container">
+        <li v-for="habit in habits" :key="habit._id">
+          {{ habit.habitName }}
+          <br />
+          {{ habit.numVal }} {{ habit.unit }}
+          <h7>Comments</h7>
+          {{ habit.comment }}
+          <HabitRecord :habitId="habit._id" />
+        </li>
+      </div>
     </ul>
   </div>
 </template>
