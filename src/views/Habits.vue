@@ -31,9 +31,16 @@ fetch("http://localhost:3000/user", {
   });
 </script>
 <template>
-  <div>
-    <h1>Hello {{ userInfo.username }}</h1>
+  <br />
+  <img src="/src/views/logo.png" padding="-20px" width="220px" />
+  <br />
+  <br />
+  <div class="Hello user container">
+    <h3>Hello {{ userInfo.username }}!</h3>
     <!-- habits container -->
+    <h4>Let's get after it! Ready. Set. Go!</h4>
+  </div>
+  <div>
     <ListHabits />
   </div>
 </template>
