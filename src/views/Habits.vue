@@ -42,5 +42,6 @@ fetch("http://localhost:3000/user", {
   </div>
   <div>
     <ListHabits />
+    <div id="dashboard" class="h-full"></div>
   </div>
 </template>
