@@ -64,14 +64,14 @@ const initiateLogin = () => {
       <br />
 
       <br />
-      <button class="loginBtn" type="submit">Login</button>
+      <button class="button" type="submit">Login</button>
       <br />
 
       <div class="strike"></div>
       <h2>OR</h2>
       <sup>Don't have a Beyond 21 account?</sup>
       <br />
-      <button class="signUpBtn" @click="router.push('/signup')" type="submit">New User Sign up</button>
+      <button class="button" @click="router.push('/signup')" type="submit">New User Sign up</button>
     </form>
   </div>
 

@@ -45,8 +45,8 @@ const addNewUser = () => {
       with Beyond 21 and transform your habits into lasting
       lifestyle changes.</h4>
     <br /> <br />
-
-    <form id="signupContainer">
+<div id="signupContainer">
+    <form>
       <label Username for="UserName"> Username </label>
       <input
         v-model="userName"
@@ -73,18 +73,18 @@ const addNewUser = () => {
         class="form-control"
       />
       <br />
-     
+     </form>
       <p><sup> By signing up you are accepting Beyond21's<br/> Terms and Conditions and Privacy Policy</sup> </p>
-      <button class="signinBtn" type="submit" @submit.prevent="addNewUser">Sign up</button>
+      <button class="button" type="submit" @submit.prevent="addNewUser">Sign up</button>
 
       <div class="strike"></div>
 
       <h2>OR</h2>
       <sup>Already have a Beyond21 account?</sup>
       <br />
-      <button class="loginBtn" @click="router.push('/login')" type="submit">Login</button>
+      <button class="button" type="click" @click="router.push('/login')">Login</button>
       <br />
-    </form>
+    </div>
   </div>
 
   <div class="made">

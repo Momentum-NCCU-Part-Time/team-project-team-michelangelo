@@ -88,15 +88,13 @@ const resetHabit = () => {
         placeholder="e.g., I Do Better Coding at Night After A Workout."
       />
       <br />
-      <button class="newHabitBtn" type="submit">Add New Habit</button>
+      <button class="button" type="submit">Add New Habit</button>
 
-      <button v-if="addingHabit" @click="addHabit(false)" class="newHabitBtn">
+      <button v-if="addingHabit" @click="addHabit(false)" class="button">
         Nevermind
       </button>
     </form>
-    <button v-else @click="addHabit(true)" class="newHabitBtn">
-      Add Habit
-    </button>
+    <button v-else @click="addHabit(true)" class="button">Add Habit</button>
   </div>
 </template>
 

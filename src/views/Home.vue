@@ -17,10 +17,10 @@ const router = useRouter();
         Embrace the journey, redefine habits <br />
         &amp; achieve lasting success.
       </h4>
-      <button @click="router.push('/signup')" class="signUpBtn" type="submit">
+      <button @click="router.push('/signup')" class="button" type="submit">
         Sign Up Today!
       </button>
-      <button @click="router.push('/login')" class="signUpBtn" type="submit">
+      <button @click="router.push('/login')" class="button" type="submit">
         User Login
       </button>
       <hr class="rounded" />
@@ -73,7 +73,7 @@ const router = useRouter();
         <h4>Free. Forever. <br /></h4>
         <br />
         <div>
-          <button class="signUpBtn" type="submit">Join the journey now!</button>
+          <button class="button" type="submit" @click="router.push('/signup')">Join the journey now!</button>
         </div>
          <div class="made">
      <p>

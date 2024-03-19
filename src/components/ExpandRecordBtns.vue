@@ -1,22 +1,23 @@
 <script setup>
 import { ref } from "vue";
-const note = ref("");
-const expandingRecord = ref(false);
+//user token
 let token = localStorage.getItem("token")
   ? JSON.parse(localStorage.getItem("token"))
   : null;
 console.log(token);
-const props = defineProps(["habitId"]);
 
-const addCompleteRecord = () => {
-  fetch(`http://localhost:3000/habits/${props.habitId}/done`, {
+const props = defineProps(["habitId", "note"]);
+const emit = defineEmits(["missedHabit"]);
+
+const addFailedRecord = () => {
+  fetch(`http://localhost:3000/habits/${props.habitId}/missed`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      note: note.value,
+      note: props.note,
     }),
   })
     .then((res) => {
@@ -27,46 +28,19 @@ const addCompleteRecord = () => {
     })
     .then((data) => {
       console.log("Record added successfully:", data);
-      resetNote();
       // Perform any additional actions afterding the record
+    })
+    .then((habitMissed) => {
+      emit("missedHabit", habitMissed);
     })
     .catch((error) => {
       console.error("Error adding record:", error);
     });
 };
-
-const expandRecord = (e) => {
-  expandingRecord.value = e;
-};
-
-const resetNote = () => {
-  note.value = "";
-};
 </script>
 
 <template>
-  <div>
-    <form
-      v-if="expandingRecord"
-      class="recordForm"
-      @submit.prevent="addFailedRecord"
-    >
-      <input
-        v-model="note"
-        class="noteForm"
-        type="text"
-        placeholder="Add Note"
-      />
-      <br />
-      <button class="recordBtn" type="submit">Missed</button>
-    </form>
-    <button
-      v-if="expandingRecord"
-      @click="expandRecord(false)"
-      class="recordBtn"
-    >
-      Nevermind
-    </button>
-    <button v-else @click="expandRecord(true)" class="recordBtn">More</button>
-  </div>
+  <button class="recordButton" type="button" @click="addFailedRecord">
+    Missed
+  </button>
 </template>
