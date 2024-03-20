@@ -47,35 +47,39 @@ const expandRecord = (e) => {
 
 <template>
   <div class="=addRecord">
-    <button class="recordButton" @click="addRecord">Done</button>
-    <div>
-      <form
-        v-if="expandingRecord"
-        class="recordForm"
-        @submit.prevent="addFailedRecord"
-      >
-        <input
-          v-model="note"
-          class="noteForm"
-          type="text"
-          placeholder="Add note about progress"
-        />
-        <ExpandRecordBtns
-          :habitId="habitId"
-          :note="note"
-          @missedHabit="resetNote"
-        />
-      </form>
-      <button
-        v-if="expandingRecord"
-        @click="expandRecord(false)"
-        class="recordButton"
-      >
-        Nevermind
-      </button>
-      <button v-else @click="expandRecord(true)" class="recordButton">
-        More
-      </button>
+    <div class="buttons2">
+      <div class="doneButton">
+        <button class="recordButton" @click="addRecord">Done</button>
+      </div>
+      <div>
+        <form
+          v-if="expandingRecord"
+          class="recordForm"
+          @submit.prevent="addFailedRecord"
+        >
+          <input
+            v-model="note"
+            class="noteForm"
+            type="text"
+            placeholder="Add note about progress"
+          />
+          <ExpandRecordBtns
+            :habitId="habitId"
+            :note="note"
+            @missedHabit="resetNote"
+          />
+        </form>
+        <button
+          v-if="expandingRecord"
+          @click="expandRecord(false)"
+          class="recordButton"
+        >
+          Nevermind
+        </button>
+        <button v-else @click="expandRecord(true)" class="recordButton">
+          More
+        </button>
+      </div>
     </div>
   </div>
 </template>
