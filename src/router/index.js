@@ -23,6 +23,11 @@ const router = createRouter({
     name: 'Signup',
     component: () => import('../views/Signup.vue') 
     },
+    {
+        path: '/beyondbot',
+        name: 'Beyond Bot',
+        component: () => import('../views/ChatBot.vue') 
+    }
 ]
 })
 
