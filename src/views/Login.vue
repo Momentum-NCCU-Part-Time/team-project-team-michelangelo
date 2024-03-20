@@ -24,8 +24,7 @@ const initiateLogin = () => {
       return res.json();
     })
     .then((data) => {
-      console.log(data.auth);
-      /* loggedIn.value = true; */
+/* loggedIn.value = true; */
       token = data.auth;
       localStorage.setItem("token", JSON.stringify(token));
       /* state.token = data.auth; */
