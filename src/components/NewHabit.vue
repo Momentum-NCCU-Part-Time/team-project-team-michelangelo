@@ -44,6 +44,7 @@ const resetHabit = () => {
   newHabitNum.value = "";
   newHabitUnit.value = "";
   newHabitComment.value = "";
+  addingHabit.value = false;
 };
 </script>
 

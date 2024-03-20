@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import { defineEmits } from "vue";
 const deleting = ref(false);
 const props = defineProps(["habitId"]);
 
@@ -39,6 +38,7 @@ function confirmDelete(e) {
   deleting.value = e;
 }
 const handleDelete = () => {
+  deleteHabit();
   emit("delete");
 };
 </script>
@@ -51,7 +51,7 @@ const handleDelete = () => {
     <button v-else @click="confirmDelete(true)" class="recordButton">
       Delete
     </button>
-    <form v-if="deleting" @submit.prevent="deleteHabit">
+    <form v-if="deleting">
       <button type="button" @click="handleDelete" class="deleteButton">
         No really, delete habit
       </button>

@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import NewHabit from "./NewHabit.vue";
 import HabitRecord from "./HabitRecord.vue";
-import { defineEmits } from "vue";
+
 const emit = defineEmits(["delete"]);
 const habits = ref([]);
 //get token

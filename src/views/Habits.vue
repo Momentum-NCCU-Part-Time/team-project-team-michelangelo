@@ -42,6 +42,11 @@ fetch("http://localhost:3000/user", {
   <div>
     <ListHabits />
   </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
   <div class="dataViz">
     <iframe
       style="
