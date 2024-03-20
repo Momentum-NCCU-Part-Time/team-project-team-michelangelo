@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import ExpandRecordBtns from "./ExpandRecordBtns.vue";
 import Delete from "./Delete.vue";
-import Chartjs from "./Chartjs.vue";
+/* import Chartjs from "./Chartjs.vue"; */
 import { defineEmits } from "vue";
 const emit = defineEmits(["delete"]);
 const note = ref("");

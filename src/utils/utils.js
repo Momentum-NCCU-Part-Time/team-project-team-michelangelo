@@ -1,4 +1,4 @@
-import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
+/* import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
 
 // Initialize the Charts Embed SDK with the base URL
 const sdk = new ChartsEmbedSDK({
@@ -24,4 +24,4 @@ export const renderDashboard = async () => {
   } catch (error) {
     console.error("Error rendering dashboard:", error);
   }
-};
+}; */
