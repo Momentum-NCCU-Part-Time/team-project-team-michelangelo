@@ -41,6 +41,6 @@ const addFailedRecord = () => {
 
 <template>
   <button class="recordButton" type="button" @click="addFailedRecord">
-    Missed
+    Incomplete
   </button>
 </template>

@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import NewHabit from "./NewHabit.vue";
 import HabitRecord from "./HabitRecord.vue";
+import { defineEmits } from "vue";
+const emit = defineEmits(["delete"]);
 const habits = ref([]);
 //get token
 let token = localStorage.getItem("token")
@@ -31,6 +33,14 @@ const getHabits = () => {
     });
 };
 getHabits();
+
+const handleDelete = () => {
+  // Handle delete event in this component
+  console.log("Delete event received in ListHabits component");
+  emit("delete");
+  // Trigger getHabits after emitting the delete event
+  getHabits();
+};
 </script>
 
 <template>
@@ -49,7 +59,7 @@ getHabits();
           {{ habit.numVal }} {{ habit.unit }}
           <h6>Comments</h6>
           {{ habit.comment }}
-          <HabitRecord :habitId="habit._id" />
+          <HabitRecord :habitId="habit._id" @delete="handleDelete" />
         </li>
       </ul>
     </div>

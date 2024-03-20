@@ -1,6 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import ExpandRecordBtns from "./ExpandRecordBtns.vue";
+import Delete from "./Delete.vue";
+import Chartjs from "./Chartjs.vue";
+import { defineEmits } from "vue";
+const emit = defineEmits(["delete"]);
 const note = ref("");
 const expandingRecord = ref(false);
 //login token
@@ -43,6 +47,11 @@ const resetNote = () => {
 const expandRecord = (e) => {
   expandingRecord.value = e;
 };
+
+const handleDelete = () => {
+  console.log("Delete event received in HabitRecord component");
+  emit("delete");
+};
 </script>
 
 <template>
@@ -65,6 +74,8 @@ const expandRecord = (e) => {
           :note="note"
           @missedHabit="resetNote"
         />
+        <Delete :habitId="habitId" @delete="handleDelete" />
+        <Chartjs />
       </form>
       <button
         v-if="expandingRecord"
