@@ -56,17 +56,13 @@ const handleDelete = () => {
 <template>
   <div class="addRecord">
     <button class="recordButton" @click="addRecord">Done</button>
-    <div class="buttonContainer">
-      <form
-        v-if="expandingRecord"
-        class="recordForm"
-        @submit.prevent="addFailedRecord"
-      >
+    <div v-if="expandingRecord" class="modal">
+      <form class="recordForm" @submit.prevent="addFailedRecord">
         <input
           v-model="note"
           class="noteForm"
           type="text"
-          placeholder="Add note about progress"
+          placeholder="How did you do?"
         />
         <ExpandRecordBtns
           :habitId="habitId"
@@ -78,15 +74,32 @@ const handleDelete = () => {
       <button
         v-if="expandingRecord"
         @click="expandRecord(false)"
-        class="recordButton"
+        class="recordButton close"
       >
         Nevermind
       </button>
-      <button v-else @click="expandRecord(true)" class="recordButton">
-        More
-      </button>
     </div>
+    <button v-else @click="expandRecord(true)" class="recordButton">
+      More
+    </button>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: rgba(233, 233, 233, 0.5);
+  padding: 40px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+</style>
