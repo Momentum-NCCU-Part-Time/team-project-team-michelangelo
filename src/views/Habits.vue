@@ -48,7 +48,7 @@ fetch("http://localhost:3000/user", {
   <br />
   <br />
   <div class="dataViz">
-    <iframe
+    <!--  <iframe
       style="
         background: #21313c;
         border: none;
@@ -58,6 +58,6 @@ fetch("http://localhost:3000/user", {
         height: 100vh;
       "
       src="https://charts.mongodb.com/charts-habit-tracker-rkcfu/embed/dashboards?id=63cab595-3b49-4aca-97c2-d7014bc059c3&theme=dark&autoRefresh=true&maxDataAge=300&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed"
-    ></iframe>
+    ></iframe> -->
   </div>
 </template>
