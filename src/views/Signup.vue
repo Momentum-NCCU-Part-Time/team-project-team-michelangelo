@@ -75,7 +75,7 @@ const addNewUser = () => {
       <br />
      </form>
       <p><sup> By signing up you are accepting Beyond21's<br/> Terms and Conditions and Privacy Policy</sup> </p>
-      <button class="button" type="submit" @submit.prevent="addNewUser">Sign up</button>
+      <button class="button" type="button" @click="addNewUser">Sign up</button>
 
       <div class="strike"></div>
 
