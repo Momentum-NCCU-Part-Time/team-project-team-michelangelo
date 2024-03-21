@@ -55,11 +55,11 @@ const handleDelete = () => {
       <ul class="habits">
         <li v-for="habit in habits" :key="habit._id">
           {{ habit.habitName }}
-          <br />
-          {{ habit.numVal }} {{ habit.unit }}
-          <h6>Comments</h6>
+          {{ habit.numVal }}
+          {{ habit.unit }}
           {{ habit.comment }}
-          <HabitRecord :habitId="habit._id" @delete="handleDelete" />
+          <br />
+          <HabitRecord :habitId="habit._id" />
         </li>
       </ul>
     </div>

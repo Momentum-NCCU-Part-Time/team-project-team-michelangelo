@@ -54,7 +54,7 @@ const handleDelete = () => {
 </script>
 
 <template>
-  <div class="=addRecord">
+  <div class="addRecord">
     <button class="recordButton" @click="addRecord">Done</button>
     <div>
       <form

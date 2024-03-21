@@ -6,17 +6,42 @@
     <div class="messagesContainer">
       <div class="messageBox">
         <template v-for="(message, index) in messages" :key="index">
-          <div :class="message.from == 'user' ? 'messageFromUser' : 'messageFromOpenAI'">
-            <div :class="message.from == 'user' ? 'userMessageWrapper' : 'openAIMessageWrapper'">
-              <div :class="message.from == 'user' ? 'userMessageContent' : 'openAIMessageContent'">{{ message.data }}</div>
+          <div
+            :class="
+              message.from == 'user' ? 'messageFromUser' : 'messageFromOpenAI'
+            "
+          >
+            <div
+              :class="
+                message.from == 'user'
+                  ? 'userMessageWrapper'
+                  : 'openAIMessageWrapper'
+              "
+            >
+              <div
+                :class="
+                  message.from == 'user'
+                    ? 'userMessageContent'
+                    : 'openAIMessageContent'
+                "
+              >
+                {{ message.data }}
+              </div>
             </div>
           </div>
         </template>
       </div>
 
       <div class="inputContainer">
-        <input v-model="currentInput" type="text" class="messageInput" placeholder="Ask away..." />
-        <button @click="sendMessage(currentInput)" class="askButton">Ask</button>
+        <input
+          v-model="currentInput"
+          type="text"
+          class="messageInput"
+          placeholder="Ask away..."
+        />
+        <button @click="sendMessage(currentInput)" class="askButton">
+          Ask
+        </button>
       </div>
     </div>
   </main>
