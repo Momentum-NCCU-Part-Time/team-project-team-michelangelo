@@ -386,7 +386,10 @@ li {
   color: #f3f1f1;
   margin-bottom: 50%;
 }
-
+.addRecord {
+  display: flex;
+  justify-content: space-between; /* Align buttons at each end */
+}
 h6 {
   display: block;
   font-size: 12px;

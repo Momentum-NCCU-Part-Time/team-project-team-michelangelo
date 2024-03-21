@@ -56,7 +56,7 @@ const handleDelete = () => {
 <template>
   <div class="addRecord">
     <button class="recordButton" @click="addRecord">Done</button>
-    <div>
+    <div class="buttonContainer">
       <form
         v-if="expandingRecord"
         class="recordForm"
