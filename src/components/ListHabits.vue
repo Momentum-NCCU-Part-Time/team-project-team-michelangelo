@@ -59,7 +59,7 @@ const handleDelete = () => {
           {{ habit.unit }}
           {{ habit.comment }}
           <br />
-          <HabitRecord :habitId="habit._id" />
+          <HabitRecord :habitId="habit._id" @delete="handleDelete" />
         </li>
       </ul>
     </div>
