@@ -1,4 +1,3 @@
-4459-
 <script setup>
 import { ref } from "vue";
 import ListHabits from "../components/ListHabits.vue";
@@ -42,5 +41,23 @@ fetch("http://localhost:3000/user", {
   </div>
   <div>
     <ListHabits />
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="dataViz">
+    <iframe
+      style="
+        background: #21313c;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
+        width: 100vw;
+        height: 100vh;
+      "
+      src="https://charts.mongodb.com/charts-habit-tracker-rkcfu/embed/dashboards?id=63cab595-3b49-4aca-97c2-d7014bc059c3&theme=dark&autoRefresh=true&maxDataAge=300&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed"
+    ></iframe>
   </div>
 </template>
