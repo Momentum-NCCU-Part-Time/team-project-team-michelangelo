@@ -58,6 +58,7 @@ const handleDelete = () => {
     <button class="recordButton" @click="addRecord">Done</button>
     <div v-if="expandingRecord" class="modal">
       <form class="recordForm" @submit.prevent="addFailedRecord">
+        <button class="recordButton" @click="addRecord">Done</button>
         <input
           v-model="note"
           class="noteForm"
@@ -92,7 +93,7 @@ const handleDelete = () => {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  background-color: rgba(233, 233, 233, 0.5);
+  background-color: #5b5b5b;
   padding: 40px;
 }
 

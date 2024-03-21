@@ -573,3 +573,9 @@ img[avatar] {
   font-family: Calibri, "Helvetica Neue", Arial, sans-serif !important;
   font-weight: 100px;
 }
+
+h8 {
+  color: #495057;
+  font-weight: 300;
+  text-align: center;
+}
